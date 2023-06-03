@@ -22,13 +22,13 @@ public class Rectangle {
     }
 
     /**
-     * Calculates the circumference of a rectangle given its width and height.
+     * Calculates the parameter of a rectangle given its width and height.
      *
      * @param width The width of the rectangle.
      * @param height The height of the rectangle.
      * @return The circumference of the rectangle.
      */
-    public double calculateCircumference(double width, double height) {
+    public double calculateParameter(double width, double height) {
         return 0;
     }
 }

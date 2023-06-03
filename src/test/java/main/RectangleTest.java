@@ -30,4 +30,11 @@ class RectangleTest {
 
         assertThrows(ArithmeticException.class, () -> rectangleMock.calculateArea(-1,-1));
     }
+
+    @Test
+    void testParameterWithPositiveNumbers() {
+        Rectangle rectangleMock = mock(Rectangle.class);
+
+
+    }
 }
