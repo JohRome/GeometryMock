@@ -1,6 +1,7 @@
 package main;
 
 public class Rectangle {
+
     /**
      * Calculates the area of a rectangle given its width and height.
      *
@@ -14,7 +15,7 @@ public class Rectangle {
         boolean numbersTooLow = width <= 0 || height <= 0;
 
         if (numbersTooLow)
-            throw new ArithmeticException("Width or height can't be set to 0");
+            throw new ArithmeticException("Width or height can't be set to 0 or less");
         if (numbersTooHigh)
             throw new ArithmeticException("Width or height can't be over " + tellWhenTooHigh);
         return width * height;
