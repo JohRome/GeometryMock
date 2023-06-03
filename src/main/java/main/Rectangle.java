@@ -9,8 +9,11 @@ public class Rectangle {
      * @return The area of the rectangle.
      */
     public double calculateArea(double width, double height) {
+        double numberTooHigh = Double.MAX_EXPONENT;
         if (width <= 0 || height <= 0)
             throw new ArithmeticException("Width or height can't be set to 0");
+        if (width > numberTooHigh || height > numberTooHigh)
+            throw new ArithmeticException("Width or height can't be over " + numberTooHigh);
         return width * height;
     }
 

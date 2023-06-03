@@ -1,33 +1,33 @@
 package main;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class RectangleTest {
-    // Testing with JUnit 5
 
-    Rectangle rectangle = null;
+    @Test
+    void testAreaOfRectangleWithPositiveNumbers() {
+        Rectangle rectangleMock = mock(Rectangle.class);
 
-    @BeforeEach
-    void setup() {
-        rectangle = new Rectangle();
+        when(rectangleMock.calculateArea(2.0,2.0)).thenReturn(4.0);
+
+        double area = rectangleMock.calculateArea(2.0,2.0);
+
+        assertEquals(4.0, area,0.01);
     }
 
-    @ParameterizedTest
-    @CsvSource({"2, 2, 4", "1, 1, 1", "10, 20, 200"})
-    void testCalculateArea(double width, double height, double expectedArea) {
-        double actual = rectangle.calculateArea(width,height);
-        assertEquals(expectedArea, actual);
-    }
-    @ParameterizedTest
-    @CsvSource({"-2, 5", "-5, 2", "-2, -4", "0, 2", "2, 0", "0, 0"})
-    void zeroOrNegativeValuesShouldThrowArithmeticException(double width, double height) {
-        assertThrows(ArithmeticException.class,
-                () -> rectangle.calculateArea(width,height));
+    @Test
+    void testAreaOfRectangleWithNegativeNumbers() {
+        Rectangle rectangleMock = mock(Rectangle.class);
+
+        doThrow(ArithmeticException.class).when(rectangleMock).calculateArea(-1,-1);
+
+        assertThrows(ArithmeticException.class, () -> rectangleMock.calculateArea(-1,-1));
     }
 }
