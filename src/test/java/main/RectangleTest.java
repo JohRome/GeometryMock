@@ -35,6 +35,10 @@ class RectangleTest {
     void testParameterWithPositiveNumbers() {
         Rectangle rectangleMock = mock(Rectangle.class);
 
+        when(rectangleMock.calculateParameter(2, 2)).thenReturn(8.0);
 
+        double parameter = rectangleMock.calculateParameter(2.0, 2.0);
+
+        assertEquals(8, parameter);
     }
 }
